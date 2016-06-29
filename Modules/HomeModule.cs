@@ -34,6 +34,12 @@ namespace Tamagotchi
         currentPet.GivePetSleep();
         return View ["pet.cshtml", currentPet];
       };
+      Post ["/pet/time"] = _ => {
+        List<Pet> list = Pet.GetAll();
+        Pet currentPet = list[0];
+        currentPet.MakeTimePass();
+        return View ["pet.cshtml", currentPet];
+      };
     }
   }
 }

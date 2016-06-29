@@ -7,6 +7,7 @@ namespace Tamagotchi.Objects
     private string _name;
     private int _food = 10;
     private int _play = 10;
+    private int _playPerDay = 2;
     private int _sleep = 10;
     private bool _isAlive = true;
     private static List<Pet> _pets = new List<Pet> {};
@@ -73,11 +74,13 @@ namespace Tamagotchi.Objects
     }
     public void MakeTimePass()
     {
-      if (_food > 0)
+      if (_food > 0 && _play > _playPerDay && _sleep > 0)
       {
         _food --;
+        _play -= _playPerDay;
+        _sleep --;
       }
-      else if (_food == 0 && _food <= 0)
+      else
       {
         this._isAlive = false;
       }
