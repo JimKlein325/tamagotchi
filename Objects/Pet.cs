@@ -10,12 +10,9 @@ namespace Tamagotchi.Objects
     private int _sleep = 10;
     private bool _isAlive = true;
     private static List<Pet> _pet = new List<Pet> {};
-    public Pet (string name, int food, int play, int sleep)
+    public Pet (string name)
     {
       _name = name;
-      _food = food;
-      _play = play;
-      _sleep = sleep;
     }
     public string GetName()
     {
@@ -52,6 +49,10 @@ namespace Tamagotchi.Objects
     public void SetSleep(int newSleep)
     {
       _sleep = newSleep;
+    }
+    public bool GetState()
+    {
+      return _isAlive;
     }
     public static List<Pet> GetAll()
     {
